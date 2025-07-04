@@ -55,6 +55,7 @@ export default function LoginPage() {
       {!session ? (
         <button onClick={() => signIn("google")} 
          className="flex px-6 py-3 bg-transparent text-black rounded-xl shadow-md border-1 hover:bg-black hover:text-white transition duration-300">
+
           <FcGoogle size={28} />
           Iniciar sesión con Google
         </button>

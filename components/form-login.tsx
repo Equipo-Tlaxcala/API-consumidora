@@ -25,6 +25,7 @@ const LoginButton = () => {
 
     setError(null);
 
+
     // Llama primero al API de .NET
     try {
       const apiRes = await fetch("https://localhost:7268/api/Auth/login", {
@@ -40,6 +41,7 @@ const LoginButton = () => {
       setError("Login exitoso en el API")
     } catch (err) {
       setError("Error de conexión con el API");
+
     }
   };
 
