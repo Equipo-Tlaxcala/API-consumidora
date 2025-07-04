@@ -25,15 +25,21 @@ const LoginButton = () => {
 
     setError(null);
 
-    // Intenta iniciar sesión usando el provider 'credentials'
-    const res = await signIn("credentials", {
-      redirect: false,
-      username: formData.username,
-      password: formData.password,
-    });
-
-    if (res?.error) {
-      setError("Credenciales inválidas");
+    // Llama primero al API de .NET
+    try {
+      const apiRes = await fetch("https://localhost:7268/api/Auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userName: formData.username, password: formData.password })
+      });
+      if (!apiRes.ok) {
+        setError("Credenciales inválidas en el API");
+        return;
+      }
+      // Si el login en el API es exitoso informa
+      setError("Login exitoso en el API")
+    } catch (err) {
+      setError("Error de conexión con el API");
     }
   };
 
