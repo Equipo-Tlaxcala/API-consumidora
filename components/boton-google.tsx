@@ -2,6 +2,8 @@
 'use client';
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useEffect } from "react";
+import { FaUserCircle } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
 export default function LoginPage() {
   const { data: session } = useSession();
@@ -32,11 +34,16 @@ export default function LoginPage() {
   }, [session]);
 
   return (
-    <div>
+    <div className="flex justify-center items-center h-screen bg-gray-100">
+      <FaUserCircle size={80} className="text-gray-600 mb-6"/>
       {!session ? (
-        <button onClick={() => signIn("google")}>Iniciar sesión con Google</button>
+        <button onClick={() => signIn("google")} 
+        className="flex px-6 py-3 bg-transparent text-black rounded-xl shadow-md hover:bg-black hover:text-white transition duration-300">
+          <FcGoogle size={28} />
+          Iniciar sesión con Google
+        </button>
       ) : (
-        <div>
+        <div>s
           <p>Bienvenido, {session?.user?.name}</p>
           <button onClick={() => signOut()}>Cerrar sesión</button>
         </div>
