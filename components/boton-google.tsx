@@ -34,11 +34,11 @@ export default function LoginPage() {
   }, [session]);
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
+    <div className="flex justify-center items-center  bg-gray-100">
       <FaUserCircle size={80} className="text-gray-600 mb-6"/>
       {!session ? (
         <button onClick={() => signIn("google")} 
-        className="flex px-6 py-3 bg-transparent text-black rounded-xl shadow-md hover:bg-black hover:text-white transition duration-300">
+        className="flex px-6 py-3 bg-transparent text-black rounded-xl shadow-md border-1 hover:bg-black hover:text-white transition duration-300">
           <FcGoogle size={28} />
           Iniciar sesión con Google
         </button>

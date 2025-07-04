@@ -25,7 +25,7 @@ const LoginButton = () => {
 
     setError(null);
 
-    // Intenta iniciar sesión usando el provider 'credentials'
+    
     const res = await signIn("credentials", {
       redirect: false,
       username: formData.username,
