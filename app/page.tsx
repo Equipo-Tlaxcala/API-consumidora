@@ -1,4 +1,4 @@
-/*import Boton from '../components/boton-google';
+import Boton from '../components/boton-google';
 import Login from '../components/form-login';
 
 export default function Home() {
@@ -14,16 +14,4 @@ export default function Home() {
     </div>
   );
 }
-*/
-'use client';
-import MenuButton from '@/components/MenuButton';
 
-export default function HomePage() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-4 p-6">
-      <h1 className="mb-6 text-3xl font-bold">Menú principal</h1>
-      <MenuButton href="/clima" label="🌤️ Ver clima" />
-      <MenuButton href="/dolar" label="💵 Tipo de cambio" />
-    </main>
-  );
-}

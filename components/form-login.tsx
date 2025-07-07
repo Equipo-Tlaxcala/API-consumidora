@@ -1,11 +1,14 @@
 'use client';
-
+import React from "react";
+import Link from 'next/link';
 import { signIn, signOut, useSession } from "next-auth/react";
 import { FaUserCircle } from "react-icons/fa";
 import { useState, ChangeEvent, FormEvent } from "react";
+import { useRouter } from 'next/navigation';
 
 const LoginButton = () => {
   const { data: session } = useSession();
+  const router = useRouter();
 
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [error, setError] = useState<string | null>(null);
@@ -37,11 +40,11 @@ const LoginButton = () => {
         setError("Credenciales inválidas en el API");
         return;
       }
-      // Si el login en el API es exitoso informa
-      setError("Login exitoso en el API")
+      setError("Login exitoso en el API");
+      // Redirección a clima
+      router.push("/routes/menu");
     } catch (err) {
       setError("Error de conexión con el API");
-
     }
   };
 
