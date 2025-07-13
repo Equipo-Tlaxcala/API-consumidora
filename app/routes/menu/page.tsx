@@ -7,6 +7,7 @@ export default function HomePage() {
       <h1 className="mb-6 text-3xl font-bold">Menú principal</h1>
       <MenuButton href="./clima" label="🌤️ Ver clima" />
       <MenuButton href="./cambio_moneda" label="💵 Tipo de cambio" />
+      <MenuButton href="./envio_correo" label=" Email" />
     </main>
   );
 }
